@@ -1,0 +1,75 @@
+package examenu2r;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class ExamenU2R {
+Scanner leer = new Scanner (System.in);
+List <Integer> lista1,lista2,listaFinal;
+   private int num;
+   private int  tamaño, r ,e;
+ 
+    public static void main(String[] args) {
+       ExamenU2R g=new ExamenU2R();
+        System.out.println(g.RellenarLista1());
+        System.out.println(g.RellenarLista2());
+       g.Recursivo(0);
+    }
+    public ExamenU2R(){
+        this.tamaño=5;
+        this.r=5;
+        this.e=10;
+     lista1=new ArrayList();
+      lista2=new ArrayList();
+       listaFinal=new ArrayList();
+    }
+    public int RellenarLista1(){
+    for(int i=0;i<tamaño;i++){
+       if(lista1.size()==tamaño){
+           System.out.println("LLA NO PUEDE INGRESAR MAS DATOS PAR");
+    }if(num%2==0){
+        
+        System.out.print("PORFABOR INGRESE  NUMERO PAR ALA LISTA:  ");
+        lista1.add(num=leer.nextInt());
+       }else{
+         
+         System.out.println("INGRESASTE UN DATO INVALIDO");
+     }
+    
+    } 
+    return lista1.size();
+    
+  }
+     public int RellenarLista2(){
+    for(int i=0;i<tamaño;i++){
+       if(lista1.size()==r){
+           System.out.println("LLA NO PUEDE INGRESAR MAS DATOS IMPAR");
+    }if((num%2)!=0){
+        System.out.print("PORFABOR INGRESE  NUMERO Impar ALA LISTA:  ");
+        lista1.add(num=leer.nextInt());
+         }else{
+         System.out.println("INGRESASTE UN DATO INVALIDO");
+     }
+    
+    } 
+    return lista2.size();
+    
+  }
+     public int Recursivo(int i){
+    if(listaFinal.isEmpty()){
+        System.out.println("LA LISTA ESTA VACIA");
+    }else if(listaFinal.size()==e){
+        System.out.println(listaFinal);
+    }else {
+  RellenarLista1();
+   RellenarLista2();
+       listaFinal.add(tamaño,r);
+      
+        Recursivo(i+1);
+        i++;
+        
+    }
+        return listaFinal.size();
+     } 
+}
